@@ -1,0 +1,14 @@
+
+config:
+  target: "http://localhost:9000"
+  processor: "./randomNum.js"
+  phases:
+    - duration: 120
+      arrivalRate: 10
+      rampTo: 50
+scenarios:
+  - name: "Get questions"
+    flow:
+      - function: "randoNum"
+      - get:
+          url: '/api/questionList/{{ productId}}'
